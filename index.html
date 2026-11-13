@@ -40,7 +40,7 @@
     --bg: #FFFFFF;
     --band: #F2F6FA;
     --fg: #0D2545;
-    --muted: #6B7B8D;
+    --muted: #526274;
     --accent: #00A99D;
     --accent-ink: #007A72;
     --rule: #DCE4EC;
@@ -52,13 +52,13 @@
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #0A1A30; --band: #0F2340; --fg: #E6EDF5; --muted: #9AABBD;
+      --bg: #0A1A30; --band: #0F2340; --fg: #E6EDF5; --muted: #B8C6D6;
       --accent: #2CC4B8; --accent-ink: #4FD3C8; --rule: #22385A; --card: #0A1A30;
       --btn-bg: #E6EDF5; --btn-fg: #0D2545; color-scheme: dark;
     }
   }
   :root[data-theme="dark"] {
-    --bg: #0A1A30; --band: #0F2340; --fg: #E6EDF5; --muted: #9AABBD;
+    --bg: #0A1A30; --band: #0F2340; --fg: #E6EDF5; --muted: #B8C6D6;
     --accent: #2CC4B8; --accent-ink: #4FD3C8; --rule: #22385A; --card: #0A1A30;
     --btn-bg: #E6EDF5; --btn-fg: #0D2545; color-scheme: dark;
   }
@@ -109,7 +109,7 @@
   }
   .eyebrow::before { content: ""; flex: none; width: 3rem; height: 2px; background: var(--accent); }
   h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); line-height: 1.12; max-width: 17ch; }
-  h1 em { color: var(--accent); font-style: italic; }
+  h1 em { color: var(--accent-ink); font-style: italic; }
   .lede { color: var(--muted); font-size: clamp(1.15rem, 2.6vw, 1.4rem); line-height: 1.7; max-width: 40rem; margin: 2.25rem 0 0; }
   .cta { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 2.25rem; margin-top: 2.5rem; }
   .btn {
@@ -165,7 +165,7 @@
 
 <header class="site">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Elizabeth Beever, back to top">
+    <a class="brand" href="#top" aria-label="Elizabeth Beever">
       <span class="mark" aria-hidden="true">EB</span>
       <span class="brand-name">Elizabeth Beever</span>
     </a>
