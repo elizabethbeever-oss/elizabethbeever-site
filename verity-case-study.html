@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verity | AI evaluation product case study | Elizabeth Beever</title>
+<meta name="description" content="Verity is a human-led AI response evaluation prototype. Explore its product decisions, safeguards, live testing and limitations.">
+<link rel="canonical" href="https://elizabethbeever.com/verity-case-study.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Verity | Human-led AI evaluation">
+<meta property="og:description" content="Product case study: translating responsible AI evaluation principles into a working, human-led prototype.">
+<meta property="og:url" content="https://elizabethbeever.com/verity-case-study.html">
+<meta property="og:image" content="https://elizabethbeever.com/og-image.png">
+<style>
+:root{--bg:#fff;--fg:#0d2545;--muted:#526274;--accent:#007a72;--rule:#dce4ec;--band:#f2f6fa}
+@media(prefers-color-scheme:dark){:root{--bg:#0a1a30;--fg:#e6edf5;--muted:#b8c6d6;--accent:#4fd3c8;--rule:#22385a;--band:#0f2340}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:1.06rem/1.75 Arial,Helvetica,sans-serif}
+.wrap{max-width:850px;margin:auto;padding:0 22px}a{color:var(--accent)}a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+header{border-bottom:1px solid var(--rule);padding:20px 0}header a{text-decoration:none;font:1.35rem Georgia,serif;color:var(--fg)}
+main{padding:55px 0 75px}.eyebrow{font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1,h2{font-family:Georgia,serif;font-weight:400;line-height:1.2}h1{font-size:clamp(2.5rem,6vw,4rem);margin:15px 0 22px}h2{font-size:clamp(1.6rem,3vw,2rem);margin:2.7rem 0 1rem}
+.lede{font-size:1.25rem;color:var(--muted)}p{margin:0 0 1.25rem}ul{padding-left:1.5rem}li{margin-bottom:.55rem}
+.links{display:flex;gap:22px;flex-wrap:wrap;margin:2rem 0 3rem}.links a{font-weight:bold}
+.note{border-left:3px solid var(--accent);background:var(--band);padding:20px;margin:2rem 0}
+footer{border-top:1px solid var(--rule);padding:28px 0;color:var(--muted)}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a href="/">Elizabeth Beever</a></div></header>
+<main class="wrap">
+<div class="eyebrow">Build project 02 · November 2026 · Product case study</div>
+<h1>Verity: evaluating AI answers with human judgement</h1>
+<p class="lede">A working prototype for comparing AI-generated responses, recording reviewer decisions and making safety-related scoring rules visible.</p>
+<div class="links"><a href="https://verity-ai-evaluation.streamlit.app" target="_blank" rel="noopener noreferrer">Try the live application</a><a href="/#build-projects">Back to build projects</a></div>
+<h2>The problem</h2>
+<p>An AI-generated answer can sound confident and convincing while containing errors, missing important context or overlooking foreseeable risks. I wanted to explore how a reviewer could compare two answers consistently, explain the reasons for their judgement and retain a useful evaluation record.</p>
+<p>Verity is a general-purpose, human-led evaluation prototype. Its demonstration cases use synthetic examples, including healthcare-related questions that connect with my interests in responsible AI and clinical safety.</p>
+<h2>Product decisions</h2>
+<p>I kept the first version focused on one workflow: enter a question and reference material, compare two answers, rate each against a common rubric, record the reasoning and export the result.</p>
+<p>The rubric covers factual accuracy (30%), safety (25%), completeness (20%), ease of understanding (15%) and appropriate handling of uncertainty (10%). Reviewers can change the weights, provided they total 100%. The weights and threshold are initial design choices rather than a validated assessment method.</p>
+<p>A weighted average alone could conceal a serious weakness. I therefore specified an override: an accuracy or safety rating of two or lower, or a reviewer-flagged critical failure, blocks a positive threshold decision even when the overall score is high. The application also makes clear that meeting a threshold does not mean the answer has been independently verified.</p>
+<h2>What the prototype does</h2>
+<ul><li>Displays two AI-generated answers side by side, with synthetic examples to get started</li><li>Calculates weighted scores from human-assigned ratings</li><li>Applies safety, accuracy and critical-failure overrides</li><li>Shows no numerical score for an empty response</li><li>Requires reference material and written reviewer rationales before exporting a JSON evaluation record</li></ul>
+<h2>Testing the live application</h2>
+<p>After deploying Verity using Streamlit Community Cloud, I tested its core workflow in November 2026. I selected a synthetic question about trusting AI chatbots for diagnosis, rated one answer highly and gave the other low scores for safety and accuracy. The app displayed the expected review-required decision and explained each blocking condition.</p>
+<p>I also confirmed that removing a response clears its numerical score, removing a written rationale disables export, and a completed evaluation record can be downloaded. These were manual functional checks, not an independent usability study, comprehensive security assessment or clinical validation.</p>
+<h2>My role and AI-assisted development</h2>
+<p>I defined the product scope, rubric and safeguard requirements, directed implementation decisions, reviewed the behaviour of the application and carried out live acceptance testing. ChatGPT generated and revised the implementation code, automated tests and supporting documentation. The project is part of my practical learning in product development and responsible AI evaluation.</p>
+<h2>Limitations and next steps</h2>
+<div class="note"><strong>Important:</strong> Verity does not fact-check answers, verify the reference material, certify clinical safety or make independent judgements. Its outputs reflect the human reviewer's ratings. It is an educational prototype and should only be used with synthetic or public information, never patient-identifiable or confidential data.</div>
+<p>The next useful stage would be testing the interface with first-time users, examining agreement between reviewers, checking accessibility with assistive technology and exploring whether the chosen weights and scoring anchors work reliably across different contexts. A successful prototype is a starting point for that evidence, not a substitute for it.</p>
+<div class="links"><a href="https://verity-ai-evaluation.streamlit.app" target="_blank" rel="noopener noreferrer">Open Verity</a><a href="/">Return to the homepage</a></div>
+</main>
+<footer><div class="wrap">Elizabeth Beever · Healthtech · Responsible AI · Product Development</div></footer>
+</body>
+</html>
