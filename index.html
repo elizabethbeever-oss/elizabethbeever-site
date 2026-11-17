@@ -95,7 +95,7 @@
   nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.75rem; margin-top: 0.75rem; }
   nav a { text-decoration: none; font-size: 1rem; padding-block: 0.25rem; }
   nav a:hover { color: var(--accent-ink); }
-  nav a[aria-current="location"] { color: var(--accent-ink); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.35em; }
+  nav a[aria-current="location"] { color: var(--accent-ink); font-weight: 700; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.35em; }
 
   section { border-bottom: 1px solid var(--rule); }
   section.band { background: var(--band); }
@@ -301,34 +301,6 @@
     <p>&copy; 2026 Elizabeth Beever</p>
   </div>
 </footer>
-<script>
-(() => {
-  const header = document.querySelector('header.site');
-  const links = Array.from(header.querySelectorAll('nav a[href^="#"]'));
-  const sections = links.map(link => document.getElementById(link.hash.slice(1)));
-  let pending = false;
-  function update() {
-    pending = false;
-    const offset = Math.max(header.getBoundingClientRect().bottom + 24, parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0);
-    let active = -1;
-    sections.forEach((section, index) => {
-      if (section && section.getBoundingClientRect().top <= offset + 1) active = index;
-    });
-    if (window.scrollY > 0 && window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) active = links.length - 1;
-    links.forEach((link, index) => {
-      if (index === active) link.setAttribute('aria-current', 'location');
-      else link.removeAttribute('aria-current');
-    });
-  }
-  function schedule() {
-    if (!pending) { pending = true; requestAnimationFrame(update); }
-  }
-  window.addEventListener('scroll', schedule, { passive: true });
-  window.addEventListener('resize', schedule);
-  window.addEventListener('hashchange', schedule);
-  window.addEventListener('pageshow', schedule);
-  update();
-})();
-</script>
+<script src="/scrollspy.js" defer></script>
 </body>
 </html>
