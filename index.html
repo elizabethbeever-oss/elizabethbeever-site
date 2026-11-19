@@ -140,6 +140,9 @@
   .card p { color: var(--muted); margin: 1rem 0 0; }
 
   .publication { margin-top: 2rem; background: var(--band); border: 1px solid var(--rule); border-left: 3px solid var(--accent); }
+  .publication-heading { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+  .publication-heading img { width: 5rem; height: 5rem; object-fit: contain; border-radius: 0.35rem; }
+  .publication-heading h3 { margin: 0; flex: 1 1 12rem; }
   .publication .strapline { color: var(--fg); font-family: var(--display); font-size: 1.2rem; }
   .publication .textlink { display: inline-block; color: var(--accent-ink); font-weight: 700; padding-block: 0.5rem; }
   .social-links { display: flex; flex-wrap: wrap; gap: 0 1.75rem; align-items: baseline; }
@@ -282,7 +285,10 @@
       <p class="muted prose">Articles and commentary exploring responsible AI in healthcare, digital clinical safety, ethics, prevention and the relationship between technology and human judgement.</p>
       <article class="card publication" aria-labelledby="publication-title">
         <span class="label">Independent publication · Substack</span>
-        <h3 id="publication-title">Intelligence in Practice</h3>
+        <div class="publication-heading">
+          <img src="/intelligence-in-practice-logo.png.png" alt="" width="80" height="80" loading="lazy" decoding="async">
+          <h3 id="publication-title">Intelligence in Practice</h3>
+        </div>
         <p class="strapline">Healthcare. Technology. Human judgement.</p>
         <p>Independent analysis for the people shaping the future of healthcare through technology and innovation.</p>
         <p><a class="textlink" href="https://intelligenceinpractice.substack.com/" aria-label="Read and subscribe to Intelligence in Practice on Substack">Read and subscribe</a></p>
